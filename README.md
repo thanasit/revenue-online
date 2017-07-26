@@ -1,2 +1,1 @@
-# revenue-online
-revenue-online
+java -jar JARPATH --spring.profiles.active=local
