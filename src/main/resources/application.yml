@@ -1,6 +1,6 @@
 server:
   port: 8090
-  contextPath: /RevenueOnlineApp
+  contextPath: /ro
 ---
 spring:
   profiles: local,default

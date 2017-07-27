@@ -1,5 +1,5 @@
 server.port=8090
-server.contextPath=/RevenueOnlineApp
+server.contextPath=/ro
 #spring.profiles.active=prod
 spring.datasource.url=jdbc:mysql://localhost:3306/revenueonline
 spring.datasource.username=dbuser
