@@ -22,7 +22,7 @@ spring:
   profiles: prod
 datasource:
   sampleapp:
-    url: jdbc:mysql://localhost:3306/revenueonline
+    url: jdbc:mysql://localhost:3306/revenueonline?useSSL=false
     username: dbuser
     password: dbpassword
     driverClassName: com.mysql.jdbc.Driver
@@ -31,5 +31,5 @@ datasource:
     hibernate:
       hbm2ddl.method: update
       show_sql: true
-      format_sql: true
+      format_sql: false
       dialect: org.hibernate.dialect.MySQLDialect
