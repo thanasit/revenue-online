@@ -76,10 +76,14 @@ public class JpaConfiguration {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws NamingException {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setDataSource(dataSource());
-        factoryBean.setPackagesToScan(new String[] { "th.or.pao.revenueonline.model" });
+        factoryBean.setPackagesToScan(getPackagesToScan());
         factoryBean.setJpaVendorAdapter(jpaVendorAdapter());
         factoryBean.setJpaProperties(jpaProperties());
         return factoryBean;
+    }
+
+    private String[] getPackagesToScan() {
+        return new String[] { "th.or.pao.revenueonline.model" };
     }
 
     /*
@@ -87,8 +91,7 @@ public class JpaConfiguration {
      */
     @Bean
     public JpaVendorAdapter jpaVendorAdapter() {
-        HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
-        return hibernateJpaVendorAdapter;
+        return new HibernateJpaVendorAdapter();
     }
 
     /*
