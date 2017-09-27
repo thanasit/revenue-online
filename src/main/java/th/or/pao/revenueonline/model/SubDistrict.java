@@ -4,9 +4,12 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,7 +23,11 @@ public class SubDistrict {
 
     @NotEmpty
     @Column(name = "SUB_DISTRICT", nullable = false)
-    private String subDistrict;
+    private String subDistrictName;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "DISTRICT_ID")
+    private District district;
 
     public Long getCode() {
         return code;
@@ -30,11 +37,19 @@ public class SubDistrict {
         this.code = code;
     }
 
-    public String getSubDistrict() {
-        return subDistrict;
+    public String getSubDistrictName() {
+        return subDistrictName;
     }
 
-    public void setSubDistrict(String subDistrict) {
-        this.subDistrict = subDistrict;
+    public void setSubDistrictName(String subDistrictName) {
+        this.subDistrictName = subDistrictName;
+    }
+
+    public District getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(District district) {
+        this.district = district;
     }
 }

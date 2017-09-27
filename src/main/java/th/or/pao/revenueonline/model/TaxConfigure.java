@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "TAX_CONFIGURE")
@@ -21,6 +23,9 @@ public class TaxConfigure {
     @NotEmpty
     @Column(name = "PERCENTAGE_TAX", nullable = false)
     private Integer percentageTax;
+
+    @OneToMany(mappedBy = "taxConfigure")
+    private List<Tax> taxList;
 
     public Long getPercentageTaxId() {
         return percentageTaxId;
