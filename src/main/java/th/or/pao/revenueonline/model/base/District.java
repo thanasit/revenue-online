@@ -1,4 +1,4 @@
-package th.or.pao.revenueonline.model;
+package th.or.pao.revenueonline.model.base;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -20,12 +20,18 @@ public class District {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "DISTRICT_ID")
+    private Long districtId;
+
     @Column(name = "CODE")
-    private Long code;
+    private String code;
 
     @NotEmpty
     @Column(name = "DISTRICT", nullable = false)
     private String districtName;
+
+    @Column(name = "IS_ACTIVE")
+    private Boolean isActive;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PROVINCE_ID")
@@ -35,13 +41,21 @@ public class District {
     private List<SubDistrict> subDistricts;
 
     @OneToMany(mappedBy = "code")
-    private List<ZipCode> zipCodes;
+    private List<PostalCode> postalCodes;
 
-    public Long getCode() {
+    public Long getDistrictId() {
+        return districtId;
+    }
+
+    public void setDistrictId(Long districtId) {
+        this.districtId = districtId;
+    }
+
+    public String getCode() {
         return code;
     }
 
-    public void setCode(Long code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
@@ -67,5 +81,34 @@ public class District {
 
     public void setProvince(Province province) {
         this.province = province;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
+
+    public List<PostalCode> getPostalCodes() {
+        return postalCodes;
+    }
+
+    public void setPostalCodes(List<PostalCode> postalCodes) {
+        this.postalCodes = postalCodes;
+    }
+
+    @Override
+    public String toString() {
+        return "District{" +
+                "districtId=" + districtId +
+                ", code='" + code + '\'' +
+                ", districtName='" + districtName + '\'' +
+                ", isActive=" + isActive +
+                ", province=" + province +
+                ", subDistricts=" + subDistricts +
+                ", postalCodes=" + postalCodes +
+                '}';
     }
 }
