@@ -24,7 +24,6 @@ public class SubDistrict {
     @Column(name = "CODE")
     private String code;
 
-    @NotEmpty
     @Column(name = "SUB_DISTRICT", nullable = false)
     private String subDistrictName;
 

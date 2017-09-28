@@ -23,7 +23,6 @@ public class Province {
     @Column(name = "CODE")
     private String code;
 
-    @NotEmpty
     @Column(name = "PROVINCE", nullable = false)
     private String provinceName;
 

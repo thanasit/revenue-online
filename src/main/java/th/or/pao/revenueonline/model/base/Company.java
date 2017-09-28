@@ -24,7 +24,6 @@ public class Company {
     @Column(name = "COMPANY_ID")
     private Long companyId;
 
-    @NotEmpty
     @Column(name = "COMPANY_NAME", nullable = false)
     private String companyName;
 
@@ -47,7 +46,6 @@ public class Company {
     @Column(name = "ADDRESS_LINE2")
     private String addressLine2;
 
-    @NotEmpty
     @Column(name = "PHONE", nullable = false)
     private String phone;
 

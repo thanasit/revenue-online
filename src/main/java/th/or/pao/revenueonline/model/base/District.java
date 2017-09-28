@@ -26,7 +26,6 @@ public class District {
     @Column(name = "CODE")
     private String code;
 
-    @NotEmpty
     @Column(name = "DISTRICT", nullable = false)
     private String districtName;
 
